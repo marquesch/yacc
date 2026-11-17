@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.7.0" # keep in sync with config/features in project.godot
+  GAME_NAME: marathon
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    name: Export (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: Linux
+            preset: Linux
+            output: marathon.x86_64
+            archive: marathon-linux-x86_64
+          - name: Windows
+            preset: Windows Desktop
+            output: marathon.exe
+            archive: marathon-windows-x86_64
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Godot ${{ env.GODOT_VERSION }}
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: ${{ env.GODOT_VERSION }}
+          use-dotnet: false
+          include-templates: true
+
+      - name: Import project
+        run: godot --headless --import || true
+
+      - name: Export ${{ matrix.name }}
+        run: |
+          mkdir -p build
+          godot --headless --export-release "${{ matrix.preset }}" "build/${{ matrix.output }}"
+
+      - name: Package
+        working-directory: build
+        run: |
+          mkdir "${{ matrix.archive }}"
+          cp "${{ matrix.output }}" "${{ matrix.archive }}/"
+          zip -r "${{ matrix.archive }}.zip" "${{ matrix.archive }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.archive }}
+          path: build/${{ matrix.archive }}.zip
+          if-no-files-found: error
+
+  release:
+    name: Publish release
+    needs: export
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true
