@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
+[ext_resource type="Script" path="res://scripts/hint_label.gd" id="4"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1")
+size = Vector2i(836, 180)
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(24, 144)
+
+[node name="Exit" parent="." instance=ExtResource("3")]
+position = Vector2(772, 42)
+
+[node name="Platform0" parent="." instance=ExtResource("2")]
+position = Vector2(0, 150)
+size = Vector2(96, 20)
+
+[node name="Platform1" parent="." instance=ExtResource("2")]
+position = Vector2(136, 118)
+size = Vector2(56, 8)
+
+[node name="Platform2" parent="." instance=ExtResource("2")]
+position = Vector2(272, 118)
+size = Vector2(64, 8)
+
+[node name="Platform3" parent="." instance=ExtResource("2")]
+position = Vector2(396, 138)
+size = Vector2(64, 8)
+
+[node name="Platform4" parent="." instance=ExtResource("2")]
+position = Vector2(500, 106)
+size = Vector2(56, 8)
+
+[node name="Platform5" parent="." instance=ExtResource("2")]
+position = Vector2(646, 106)
+size = Vector2(64, 8)
+
+[node name="Platform6" parent="." instance=ExtResource("2")]
+position = Vector2(740, 74)
+size = Vector2(56, 8)
+
+[node name="Hint0" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+offset_left = 24.0
+offset_top = 100.0
+script = ExtResource("4")
+template = "Jump again in mid-air: {jump}"
+
