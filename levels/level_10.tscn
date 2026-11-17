@@ -1,60 +1,59 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://f4vjc3pp7ok4"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
-[ext_resource type="Script" path="res://scripts/hint_label.gd" id="4"]
+[ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://scripts/hint_label.gd" id="4"]
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D" unique_id=216851972]
 script = ExtResource("1")
-size = Vector2i(1456, 180)
+size = Vector2i(1610, 180)
 
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="Spawn" type="Marker2D" parent="." unique_id=1334324307]
 position = Vector2(24, 154)
 
-[node name="Exit" parent="." instance=ExtResource("3")]
-position = Vector2(1392, 14)
+[node name="Exit" parent="." unique_id=1325399726 instance=ExtResource("3")]
+position = Vector2(1590, 15)
 
-[node name="Platform0" parent="." instance=ExtResource("2")]
+[node name="Platform0" parent="." unique_id=492361609 instance=ExtResource("2")]
 position = Vector2(0, 160)
 size = Vector2(64, 20)
 
-[node name="Platform1" parent="." instance=ExtResource("2")]
-position = Vector2(204, 160)
+[node name="Platform1" parent="." unique_id=2056695574 instance=ExtResource("2")]
+position = Vector2(224, 160)
 size = Vector2(64, 8)
 
-[node name="Platform2" parent="." instance=ExtResource("2")]
-position = Vector2(388, 130)
+[node name="Platform2" parent="." unique_id=101824896 instance=ExtResource("2")]
+position = Vector2(429, 130)
 size = Vector2(56, 8)
 
-[node name="Platform3" parent="." instance=ExtResource("2")]
-position = Vector2(574, 106)
+[node name="Platform3" parent="." unique_id=1522834242 instance=ExtResource("2")]
+position = Vector2(640, 106)
 size = Vector2(56, 8)
 
-[node name="Platform4" parent="." instance=ExtResource("2")]
-position = Vector2(720, 50)
+[node name="Platform4" parent="." unique_id=153029438 instance=ExtResource("2")]
+position = Vector2(805, 50)
 size = Vector2(56, 8)
 
-[node name="Platform5" parent="." instance=ExtResource("2")]
-position = Vector2(886, 110)
+[node name="Platform5" parent="." unique_id=1289027000 instance=ExtResource("2")]
+position = Vector2(992, 110)
 size = Vector2(64, 8)
 
-[node name="Platform6" parent="." instance=ExtResource("2")]
-position = Vector2(1060, 62)
+[node name="Platform6" parent="." unique_id=1317073453 instance=ExtResource("2")]
+position = Vector2(1189, 57)
 size = Vector2(56, 8)
 
-[node name="Platform7" parent="." instance=ExtResource("2")]
-position = Vector2(1246, 102)
+[node name="Platform7" parent="." unique_id=894225187 instance=ExtResource("2")]
+position = Vector2(1394, 110)
 size = Vector2(64, 8)
 
-[node name="Platform8" parent="." instance=ExtResource("2")]
-position = Vector2(1360, 46)
+[node name="Platform8" parent="." unique_id=1297283279 instance=ExtResource("2")]
+position = Vector2(1558, 47)
 size = Vector2(56, 8)
 
-[node name="Hint0" type="Label" parent="."]
+[node name="Hint0" type="Label" parent="." unique_id=644407088]
 modulate = Color(1, 1, 1, 0.6)
 offset_left = 24.0
 offset_top = 100.0
 script = ExtResource("4")
 template = "Jump, dash, then jump again!"
-

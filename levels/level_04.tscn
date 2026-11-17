@@ -1,33 +1,31 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://dil30svts3j2j"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
-[ext_resource type="Script" path="res://scripts/hint_label.gd" id="4"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=323548001]
 script = ExtResource("1")
 size = Vector2i(420, 180)
 
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="Spawn" type="Marker2D" parent="." unique_id=512562013]
 position = Vector2(24, 154)
 
-[node name="Exit" parent="." instance=ExtResource("3")]
-position = Vector2(342, 80)
+[node name="Exit" parent="." unique_id=446735488 instance=ExtResource("3")]
+position = Vector2(342, 52)
 
-[node name="Platform0" parent="." instance=ExtResource("2")]
+[node name="Platform0" parent="." unique_id=1419988059 instance=ExtResource("2")]
 position = Vector2(0, 160)
 size = Vector2(420, 20)
 
-[node name="Platform1" parent="." instance=ExtResource("2")]
-position = Vector2(130, 144)
+[node name="Platform1" parent="." unique_id=1492453175 instance=ExtResource("2")]
+position = Vector2(130, 136)
 size = Vector2(48, 8)
 
-[node name="Platform2" parent="." instance=ExtResource("2")]
-position = Vector2(208, 128)
+[node name="Platform2" parent="." unique_id=495464674 instance=ExtResource("2")]
+position = Vector2(208, 110)
 size = Vector2(48, 8)
 
-[node name="Platform3" parent="." instance=ExtResource("2")]
-position = Vector2(286, 112)
+[node name="Platform3" parent="." unique_id=1962613167 instance=ExtResource("2")]
+position = Vector2(286, 83)
 size = Vector2(80, 8)
-
