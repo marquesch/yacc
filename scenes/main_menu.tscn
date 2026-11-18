@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://4pkc5cbrponm"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1"]
+[ext_resource type="Script" uid="uid://blmqe8kgn5525" path="res://scripts/main_menu.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://cd4ay88cbmq4u" path="res://assets/songs/sleepless.mp3" id="2_wu84c"]
+[ext_resource type="AudioStream" uid="uid://d0rbjbqnsn7nn" path="res://assets/songs/prism.mp3" id="3_8ln24"]
+[ext_resource type="AudioStream" uid="uid://bkurkcenk4w74" path="res://assets/songs/paperback.mp3" id="4_rtw2f"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_uo5s5"]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("2_wu84c")
+stream_1 = ExtResource("3_8ln24")
+stream_2 = ExtResource("4_rtw2f")
+stream_3 = ExtResource("3_8ln24")
+
+[node name="MainMenu" type="Control" unique_id=263141445]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,63 +22,68 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
 
-[node name="MainBox" type="CenterContainer" parent="."]
-layout_mode = 3
+[node name="MainBox" type="CenterContainer" parent="." unique_id=1236155693]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="MainBox"]
+[node name="VBox" type="VBoxContainer" parent="MainBox" unique_id=1654430249]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Title" type="Label" parent="MainBox/VBox"]
+[node name="Title" type="Label" parent="MainBox/VBox" unique_id=690086522]
 layout_mode = 2
 text = "MARATHON"
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="MainBox/VBox"]
+[node name="ContinueButton" type="Button" parent="MainBox/VBox" unique_id=1889445142]
 layout_mode = 2
 text = "Continue"
 
-[node name="NewGameButton" type="Button" parent="MainBox/VBox"]
+[node name="NewGameButton" type="Button" parent="MainBox/VBox" unique_id=1051915897]
 layout_mode = 2
 text = "New game"
 
-[node name="QuitButton" type="Button" parent="MainBox/VBox"]
+[node name="QuitButton" type="Button" parent="MainBox/VBox" unique_id=788323248]
 layout_mode = 2
 text = "Quit"
 
-[node name="ConfirmBox" type="CenterContainer" parent="."]
+[node name="ConfirmBox" type="CenterContainer" parent="." unique_id=141915054]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="ConfirmBox"]
+[node name="VBox" type="VBoxContainer" parent="ConfirmBox" unique_id=534703512]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Question" type="Label" parent="ConfirmBox/VBox"]
+[node name="Question" type="Label" parent="ConfirmBox/VBox" unique_id=719561450]
 layout_mode = 2
 text = "Start over?
 This erases your saved progress."
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="ConfirmBox/VBox"]
+[node name="Buttons" type="HBoxContainer" parent="ConfirmBox/VBox" unique_id=304159584]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="YesButton" type="Button" parent="ConfirmBox/VBox/Buttons"]
+[node name="YesButton" type="Button" parent="ConfirmBox/VBox/Buttons" unique_id=1500883412]
 layout_mode = 2
 text = "Yes, start over"
 
-[node name="NoButton" type="Button" parent="ConfirmBox/VBox/Buttons"]
+[node name="NoButton" type="Button" parent="ConfirmBox/VBox/Buttons" unique_id=2024672109]
 layout_mode = 2
 text = "No"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1736691452]
+stream = SubResource("AudioStreamPlaylist_uo5s5")
+volume_db = -20.0
+autoplay = true

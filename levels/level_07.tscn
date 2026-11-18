@@ -6,46 +6,46 @@
 
 [node name="Level" type="Node2D" unique_id=608669307]
 script = ExtResource("1")
-size = Vector2i(1186, 180)
+size = Vector2i(1338, 180)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=696486765]
 position = Vector2(24, 144)
 
 [node name="Exit" parent="." unique_id=467225993 instance=ExtResource("3")]
-position = Vector2(1122, 92)
+position = Vector2(1274.5, 69.6)
 
 [node name="Platform0" parent="." unique_id=996883862 instance=ExtResource("2")]
 position = Vector2(0, 150)
 size = Vector2(64, 20)
 
 [node name="Platform1" parent="." unique_id=1769429337 instance=ExtResource("2")]
-position = Vector2(164, 150)
+position = Vector2(189, 150)
 size = Vector2(64, 8)
 
 [node name="Platform2" parent="." unique_id=1217377698 instance=ExtResource("2")]
-position = Vector2(258, 122)
+position = Vector2(290.5, 116.4)
 size = Vector2(48, 8)
 
 [node name="Platform3" parent="." unique_id=2144619839 instance=ExtResource("2")]
-position = Vector2(416, 146)
+position = Vector2(476, 140.4)
 size = Vector2(64, 8)
 
 [node name="Platform4" parent="." unique_id=249512616 instance=ExtResource("2")]
-position = Vector2(530, 118)
+position = Vector2(602.5, 106.8)
 size = Vector2(56, 8)
 
 [node name="Platform5" parent="." unique_id=166165782 instance=ExtResource("2")]
-position = Vector2(706, 144)
+position = Vector2(808.5, 132.8)
 size = Vector2(64, 8)
 
 [node name="Platform6" parent="." unique_id=990470417 instance=ExtResource("2")]
-position = Vector2(820, 116)
+position = Vector2(935, 99.2)
 size = Vector2(56, 8)
 
 [node name="Platform7" parent="." unique_id=880114062 instance=ExtResource("2")]
-position = Vector2(986, 152)
+position = Vector2(1128.5, 135.2)
 size = Vector2(64, 8)
 
 [node name="Platform8" parent="." unique_id=1861155761 instance=ExtResource("2")]
-position = Vector2(1090, 124)
+position = Vector2(1242.5, 101.6)
 size = Vector2(56, 8)

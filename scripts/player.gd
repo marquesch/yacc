@@ -144,9 +144,6 @@ func _update_color() -> void:
 		_rect.color = COLOR_DASH_USED
 
 
-# --- Normal movement -------------------------------------------------------------------
-
-
 func _normal_step(delta: float, input: Vector2, jump_just_pressed: bool) -> void:
 	_apply_horizontal_movement(delta, input.x)
 	_apply_gravity(delta)
@@ -226,8 +223,6 @@ func _resolve_animation() -> String:
 	if velocity.y < 0:
 		return "ascend"
 	return "idle"
-
-# --- Dash ------------------------------------------------------------------------------
 
 
 func _start_dash(input: Vector2) -> void:

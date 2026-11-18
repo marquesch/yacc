@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cxj742p8048n5"]
+
+[ext_resource type="AudioStream" uid="uid://cd4ay88cbmq4u" path="res://assets/songs/sleepless.mp3" id="1_8ss4e"]
+[ext_resource type="AudioStream" uid="uid://d0rbjbqnsn7nn" path="res://assets/songs/prism.mp3" id="2_ac8y8"]
+[ext_resource type="AudioStream" uid="uid://bkurkcenk4w74" path="res://assets/songs/paperback.mp3" id="3_4uryw"]
+[ext_resource type="AudioStream" uid="uid://dytsvrh1a5q55" path="res://assets/songs/aeon.mp3" id="4_8mhfv"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_uo5s5"]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("1_8ss4e")
+stream_1 = ExtResource("2_ac8y8")
+stream_2 = ExtResource("3_4uryw")
+stream_3 = ExtResource("4_8mhfv")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1084874933]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_uo5s5")
+autoplay = true

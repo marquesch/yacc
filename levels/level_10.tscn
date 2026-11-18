@@ -7,53 +7,53 @@
 
 [node name="Level2" type="Node2D" unique_id=216851972]
 script = ExtResource("1")
-size = Vector2i(1610, 180)
+size = Vector2i(1880, 212)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=1334324307]
-position = Vector2(24, 154)
+position = Vector2(24, 186.6)
 
 [node name="Exit" parent="." unique_id=1325399726 instance=ExtResource("3")]
-position = Vector2(1590, 15)
+position = Vector2(1859.5, 8)
 
 [node name="Platform0" parent="." unique_id=492361609 instance=ExtResource("2")]
-position = Vector2(0, 160)
+position = Vector2(0, 192.6)
 size = Vector2(64, 20)
 
 [node name="Platform1" parent="." unique_id=2056695574 instance=ExtResource("2")]
-position = Vector2(224, 160)
+position = Vector2(264, 192.6)
 size = Vector2(64, 8)
 
 [node name="Platform2" parent="." unique_id=101824896 instance=ExtResource("2")]
-position = Vector2(429, 130)
+position = Vector2(504.2, 156.6)
 size = Vector2(56, 8)
 
 [node name="Platform3" parent="." unique_id=1522834242 instance=ExtResource("2")]
-position = Vector2(640, 106)
+position = Vector2(754, 127.8)
 size = Vector2(56, 8)
 
 [node name="Platform4" parent="." unique_id=153029438 instance=ExtResource("2")]
-position = Vector2(805, 50)
+position = Vector2(946.2, 60.6)
 size = Vector2(56, 8)
 
 [node name="Platform5" parent="." unique_id=1289027000 instance=ExtResource("2")]
-position = Vector2(992, 110)
+position = Vector2(1166, 120.6)
 size = Vector2(64, 8)
 
 [node name="Platform6" parent="." unique_id=1317073453 instance=ExtResource("2")]
-position = Vector2(1189, 57)
+position = Vector2(1396.2, 57)
 size = Vector2(56, 8)
 
 [node name="Platform7" parent="." unique_id=894225187 instance=ExtResource("2")]
-position = Vector2(1394, 110)
+position = Vector2(1638.5, 110)
 size = Vector2(64, 8)
 
 [node name="Platform8" parent="." unique_id=1297283279 instance=ExtResource("2")]
-position = Vector2(1558, 47)
+position = Vector2(1827.5, 40)
 size = Vector2(56, 8)
 
 [node name="Hint0" type="Label" parent="." unique_id=644407088]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 24.0
-offset_top = 100.0
+offset_left = 24
+offset_top = 132.6
 script = ExtResource("4")
 template = "Jump, dash, then jump again!"

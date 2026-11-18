@@ -7,45 +7,45 @@
 
 [node name="Level" type="Node2D" unique_id=321577199]
 script = ExtResource("1")
-size = Vector2i(909, 180)
+size = Vector2i(1021, 180)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=282235186]
 position = Vector2(24, 144)
 
 [node name="Exit" parent="." unique_id=1843648262 instance=ExtResource("3")]
-position = Vector2(879, 42)
+position = Vector2(991, 22.8)
 
 [node name="Platform0" parent="." unique_id=413480783 instance=ExtResource("2")]
 position = Vector2(0, 150)
 size = Vector2(96, 20)
 
 [node name="Platform1" parent="." unique_id=598346662 instance=ExtResource("2")]
-position = Vector2(155, 118)
+position = Vector2(169.8, 111.6)
 size = Vector2(56, 8)
 
 [node name="Platform2" parent="." unique_id=980390237 instance=ExtResource("2")]
-position = Vector2(306, 118)
+position = Vector2(344.5, 111.6)
 size = Vector2(64, 8)
 
 [node name="Platform3" parent="." unique_id=861769079 instance=ExtResource("2")]
-position = Vector2(451, 138)
+position = Vector2(509.8, 131.6)
 size = Vector2(64, 8)
 
 [node name="Platform4" parent="." unique_id=1492610647 instance=ExtResource("2")]
-position = Vector2(573, 106)
+position = Vector2(646.2, 93.2)
 size = Vector2(56, 8)
 
 [node name="Platform5" parent="." unique_id=1183508031 instance=ExtResource("2")]
-position = Vector2(734, 106)
+position = Vector2(833.5, 93.2)
 size = Vector2(64, 8)
 
 [node name="Platform6" parent="." unique_id=1618998680 instance=ExtResource("2")]
-position = Vector2(848, 74)
+position = Vector2(960, 54.8)
 size = Vector2(56, 8)
 
 [node name="Hint0" type="Label" parent="." unique_id=885307142]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 24.0
-offset_top = 100.0
+offset_left = 24
+offset_top = 100
 script = ExtResource("4")
 template = "Jump again in mid-air: {jump}"
