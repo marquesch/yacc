@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  GODOT_VERSION: "4.7.0" # keep in sync with config/features in project.godot
+  GODOT_VERSION: "4.7.0"
   GAME_NAME: yacc
 
 permissions:
@@ -29,6 +29,10 @@ jobs:
             preset: Windows Desktop
             output: yacc.exe
             archive: yacc-windows-x86_64
+          - name: macOS
+            preset: macOS
+            output: yacc.zip
+            archive: yacc-macos-universal
     steps:
       - uses: actions/checkout@v4
 
@@ -50,9 +54,14 @@ jobs:
       - name: Package
         working-directory: build
         run: |
-          mkdir "${{ matrix.archive }}"
-          cp "${{ matrix.output }}" "${{ matrix.archive }}/"
-          zip -r "${{ matrix.archive }}.zip" "${{ matrix.archive }}"
+          if [[ "${{ matrix.output }}" == *.zip ]]; then
+            # macOS export is already a zipped .app bundle
+            mv "${{ matrix.output }}" "${{ matrix.archive }}.zip"
+          else
+            mkdir "${{ matrix.archive }}"
+            cp "${{ matrix.output }}" "${{ matrix.archive }}/"
+            zip -r "${{ matrix.archive }}.zip" "${{ matrix.archive }}"
+          fi
 
       - uses: actions/upload-artifact@v4
         with:
