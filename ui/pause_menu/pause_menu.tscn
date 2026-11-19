@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bu17ae6x6yfgk"]
+
+[ext_resource type="Script" uid="uid://cgd8boh33ckmx" path="res://ui/pause_menu/pause_menu.gd" id="1"]
+
+[node name="PauseMenu" type="Control" unique_id=530813861]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Dim" type="ColorRect" parent="." unique_id=627598930]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=804107151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center" unique_id=1332188522]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Center/VBox" unique_id=2019440795]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Center/VBox" unique_id=1934703837]
+layout_mode = 2
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="Center/VBox" unique_id=1990596310]
+layout_mode = 2
+text = "Main menu"

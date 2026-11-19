@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ooy2hgwkjvi6"]
 
-[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
-[ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://scripts/hint_label.gd" id="4"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/exit/exit.tscn" id="3"]
+[ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
 
 [node name="Level" type="Node2D" unique_id=1572938429]
 script = ExtResource("1")

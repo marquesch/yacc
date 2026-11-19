@@ -1,9 +1,8 @@
-class_name Level
-extends Node2D
+class_name Level extends Node2D
 ## Root of every level scene.
 ##
 ## A level scene contains platforms, a `Spawn` (Marker2D) where the player starts and an
-## `Exit` (Area2D) that completes the level. The player is NOT part of the level: the Game
+## `Exit` (Area2D) that completes the level. The player is NOT part of the level: World
 ## owns the player and carries it from level to level.
 
 ## Emitted when the player touches the exit.

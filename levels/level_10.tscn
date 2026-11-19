@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://f4vjc3pp7ok4"]
 
-[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
-[ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://scripts/hint_label.gd" id="4"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/exit/exit.tscn" id="3"]
+[ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
 
 [node name="Level2" type="Node2D" unique_id=216851972]
 script = ExtResource("1")
@@ -53,7 +53,7 @@ size = Vector2(56, 8)
 
 [node name="Hint0" type="Label" parent="." unique_id=644407088]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 24
+offset_left = 24.0
 offset_top = 132.6
 script = ExtResource("4")
 template = "Jump, dash, then jump again!"

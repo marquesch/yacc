@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="YACC"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="uid://b30xgstreb6ni"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [autoload]
 
-SaveData="*res://scripts/save_data.gd"
-InputHints="*res://scripts/input_hints.gd"
+Progress="*res://autoloads/progress.gd"
+InputHints="*res://autoloads/input_prompts.gd"
 MusicPlayer="*uid://cxj742p8048n5"
 
 [debug]

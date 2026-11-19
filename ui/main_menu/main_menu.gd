@@ -1,7 +1,11 @@
+class_name MainMenu
 extends Control
 ## Title screen: Continue, New game (with an overwrite confirmation) and Quit.
 
-const GAME_SCENE := "res://scenes/game.tscn"
+signal new_game_requested
+signal continue_requested
+signal overwrite_save_confirmed
+signal quit_requested
 
 @onready var _main_box: Control = $MainBox
 @onready var _confirm_box: Control = $ConfirmBox
@@ -13,13 +17,22 @@ const GAME_SCENE := "res://scenes/game.tscn"
 
 
 func _ready() -> void:
-	_continue_button.disabled = not SaveData.has_save()
-	_continue_button.pressed.connect(_on_continue_pressed)
-	_new_game_button.pressed.connect(_on_new_game_pressed)
-	_quit_button.pressed.connect(get_tree().quit)
-	_yes_button.pressed.connect(_start_new_game)
+	_new_game_button.pressed.connect(new_game_requested.emit)
+	_continue_button.pressed.connect(continue_requested.emit)
+	_quit_button.pressed.connect(quit_requested.emit)
+	_yes_button.pressed.connect(overwrite_save_confirmed.emit)
 	_no_button.pressed.connect(_show_main)
 	_show_main()
+
+
+func set_continue_button_as(enabled: bool) -> void:
+	_continue_button.disabled = not enabled
+
+
+func show_overwrite_save_confirmation() -> void:
+	_main_box.hide()
+	_confirm_box.show()
+	_no_button.grab_focus()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -31,29 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _show_main() -> void:
 	_confirm_box.hide()
 	_main_box.show()
-	# Controllers and keyboards need a focused button to navigate from.
 	if _continue_button.disabled:
 		_new_game_button.grab_focus()
 	else:
 		_continue_button.grab_focus()
-
-
-func _on_continue_pressed() -> void:
-	if not SaveData.load_game():
-		SaveData.new_game()  # The save is unreadable: start fresh rather than guess.
-	get_tree().change_scene_to_file(GAME_SCENE)
-
-
-func _on_new_game_pressed() -> void:
-	if not SaveData.has_save():
-		_start_new_game()
-		return
-	# This overwrites progress, so ask first (defaulting to "No").
-	_main_box.hide()
-	_confirm_box.show()
-	_no_button.grab_focus()
-
-
-func _start_new_game() -> void:
-	SaveData.new_game()
-	get_tree().change_scene_to_file(GAME_SCENE)

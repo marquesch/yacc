@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://4pkc5cbrponm"]
 
-[ext_resource type="Script" uid="uid://blmqe8kgn5525" path="res://scripts/main_menu.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://cxj742p8048n5" path="res://scenes/music_player.tscn" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://blmqe8kgn5525" path="res://ui/main_menu/main_menu.gd" id="1_mu8pm"]
 
 [node name="MainMenu" type="Control" unique_id=263141445]
 layout_mode = 3
@@ -10,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1")
+script = ExtResource("1_mu8pm")
 metadata/_edit_group_ = true
 
 [node name="MainBox" type="CenterContainer" parent="." unique_id=1236155693]
@@ -73,5 +72,3 @@ text = "Yes, start over"
 [node name="NoButton" type="Button" parent="ConfirmBox/VBox/Buttons" unique_id=2024672109]
 layout_mode = 2
 text = "No"
-
-[node name="MusicPlayer" parent="." unique_id=1084874933 instance=ExtResource("2_ekxnf")]

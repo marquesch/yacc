@@ -1,58 +1,56 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b7ew1vsb7ugqa"]
 
-[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/exit/exit.tscn" id="3"]
 
-[node name="Level11" type="Node2D"]
+[node name="Level11" type="Node2D" unique_id=331183991]
 script = ExtResource("1")
 size = Vector2i(975, 215)
 
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="Spawn" type="Marker2D" parent="." unique_id=1081197617]
 position = Vector2(20, 195)
 
-[node name="Exit" parent="." instance=ExtResource("3")]
+[node name="Exit" parent="." unique_id=989185436 instance=ExtResource("3")]
 position = Vector2(913, 138)
 
-[node name="Platform0" parent="." instance=ExtResource("2")]
-position = Vector2(0, 0)
+[node name="Platform0" parent="." unique_id=1291252214 instance=ExtResource("2")]
 size = Vector2(8, 215)
 
-[node name="Platform1" parent="." instance=ExtResource("2")]
+[node name="Platform1" parent="." unique_id=1181592144 instance=ExtResource("2")]
 position = Vector2(967, 0)
 size = Vector2(8, 215)
 
-[node name="Platform2" parent="." instance=ExtResource("2")]
-position = Vector2(0, 0)
+[node name="Platform2" parent="." unique_id=1195746667 instance=ExtResource("2")]
 size = Vector2(975, 8)
 
-[node name="Platform3" parent="." instance=ExtResource("2")]
+[node name="Platform3" parent="." unique_id=908707846 instance=ExtResource("2")]
 position = Vector2(8, 207)
 size = Vector2(92, 8)
 
-[node name="Platform4" parent="." instance=ExtResource("2")]
+[node name="Platform4" parent="." unique_id=765741383 instance=ExtResource("2")]
 position = Vector2(275, 207)
 size = Vector2(40, 8)
 
-[node name="Platform5" parent="." instance=ExtResource("2")]
+[node name="Platform5" parent="." unique_id=1386818935 instance=ExtResource("2")]
 position = Vector2(500, 207)
 size = Vector2(40, 8)
 
-[node name="Platform6" parent="." instance=ExtResource("2")]
+[node name="Platform6" parent="." unique_id=1357214225 instance=ExtResource("2")]
 position = Vector2(735, 207)
 size = Vector2(40, 8)
 
-[node name="Platform7" parent="." instance=ExtResource("2")]
+[node name="Platform7" parent="." unique_id=170979136 instance=ExtResource("2")]
 position = Vector2(100, 183)
 size = Vector2(695, 8)
 
-[node name="Platform8" parent="." instance=ExtResource("2")]
+[node name="Platform8" parent="." unique_id=1369863647 instance=ExtResource("2")]
 position = Vector2(100, 8)
 size = Vector2(8, 175)
 
-[node name="Platform9" parent="." instance=ExtResource("2")]
+[node name="Platform9" parent="." unique_id=600172876 instance=ExtResource("2")]
 position = Vector2(835, 207)
 size = Vector2(40, 8)
 
-[node name="Platform10" parent="." instance=ExtResource("2")]
+[node name="Platform10" parent="." unique_id=1010264434 instance=ExtResource("2")]
 position = Vector2(905, 170)

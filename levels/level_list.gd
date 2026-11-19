@@ -1,7 +1,7 @@
 class_name LevelList
 extends RefCounted
 ## The game's levels, in play order. To add a level: create its scene in levels/ and
-## append it here. (Kept apart from Game so dev tools can read it without loading the game.)
+## append it here. (Kept apart from Main so dev tools can read it without loading the game.)
 
 const LEVELS: Array[String] = [
 	"res://levels/level_01.tscn",

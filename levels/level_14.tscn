@@ -1,8 +1,8 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://scripts/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/exit.tscn" id="3"]
+[ext_resource type="Script"  path="res://levels/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://entities/exit/exit.tscn" id="3"]
 
 [node name="Level14" type="Node2D"]
 script = ExtResource("1")

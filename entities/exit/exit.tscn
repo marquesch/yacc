@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cadx2j3bibenr"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(16, 32)
+
+[node name="Exit" type="Area2D" unique_id=1132805535]
+
+[node name="Rect" type="ColorRect" parent="." unique_id=550672478]
+offset_right = 16.0
+offset_bottom = 32.0
+color = Color(0.35, 0.85, 0.45, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844063412]
+position = Vector2(8, 16)
+shape = SubResource("1")
