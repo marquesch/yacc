@@ -13,6 +13,8 @@ const END_SCREEN_TIME := 3.0
 var _level_index := 0
 var _level: Level
 var _is_transitioning := false
+var _death_count := 0
+var _time_elapsed := 0
 
 @onready var _level_container: Node2D = $LevelContainer
 @onready var _player: Player = $Player

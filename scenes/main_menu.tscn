@@ -1,17 +1,7 @@
 [gd_scene format=3 uid="uid://4pkc5cbrponm"]
 
 [ext_resource type="Script" uid="uid://blmqe8kgn5525" path="res://scripts/main_menu.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://cd4ay88cbmq4u" path="res://assets/songs/sleepless.mp3" id="2_wu84c"]
-[ext_resource type="AudioStream" uid="uid://d0rbjbqnsn7nn" path="res://assets/songs/prism.mp3" id="3_8ln24"]
-[ext_resource type="AudioStream" uid="uid://bkurkcenk4w74" path="res://assets/songs/paperback.mp3" id="4_rtw2f"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_uo5s5"]
-shuffle = true
-stream_count = 4
-stream_0 = ExtResource("2_wu84c")
-stream_1 = ExtResource("3_8ln24")
-stream_2 = ExtResource("4_rtw2f")
-stream_3 = ExtResource("3_8ln24")
+[ext_resource type="PackedScene" uid="uid://cxj742p8048n5" path="res://scenes/music_player.tscn" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control" unique_id=263141445]
 layout_mode = 3
@@ -21,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1")
+metadata/_edit_group_ = true
 
 [node name="MainBox" type="CenterContainer" parent="." unique_id=1236155693]
 layout_mode = 1
@@ -36,7 +27,7 @@ theme_override_constants/separation = 6
 
 [node name="Title" type="Label" parent="MainBox/VBox" unique_id=690086522]
 layout_mode = 2
-text = "MARATHON"
+text = "YACC"
 horizontal_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="MainBox/VBox" unique_id=1889445142]
@@ -83,7 +74,4 @@ text = "Yes, start over"
 layout_mode = 2
 text = "No"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1736691452]
-stream = SubResource("AudioStreamPlaylist_uo5s5")
-volume_db = -20.0
-autoplay = true
+[node name="MusicPlayer" parent="." unique_id=1084874933 instance=ExtResource("2_ekxnf")]
