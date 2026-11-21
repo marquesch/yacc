@@ -17,6 +17,8 @@ func _ready() -> void:
 	_ui.menu_requested.connect(_on_menu_requested)
 	_world.player_died.connect(_on_player_died)
 	_world.level_completed.connect(_on_level_completed)
+	_world.player_jumped.connect(_on_player_jumped)
+	_world.player_dashed.connect(_on_player_dashed)
 	_show_menu()
 	_ui.fade_to(0.0)
 
@@ -74,6 +76,17 @@ func _on_player_died() -> void:
 	_ui.set_death_count(Progress.deaths)
 
 
+func _on_player_jumped(air: bool) -> void:
+	if air:
+		Progress.air_jumps += 1
+	else:
+		Progress.jumps += 1
+
+
+func _on_player_dashed() -> void:
+	Progress.dashes += 1
+
+
 func _on_level_completed() -> void:
 	if _state != State.PLAYING:
 		return
@@ -116,7 +129,9 @@ func _go_to_level(index: int) -> void:
 func _finish() -> void:
 	_state = State.END
 	_world.clear()
-	_ui.show_end(int(Progress.time), Progress.deaths)
+	_ui.show_end(
+		int(Progress.time), Progress.deaths, Progress.jumps, Progress.air_jumps, Progress.dashes
+	)
 	Progress.erase()
 
 

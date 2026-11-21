@@ -3,6 +3,8 @@ extends Node2D
 
 signal level_completed
 signal player_died
+signal player_jumped(air: bool)
+signal player_dashed
 
 var _level: Level
 
@@ -46,6 +48,8 @@ func clear() -> void:
 
 func _ready() -> void:
 	_player.died.connect(_on_player_died)
+	_player.jumped.connect(player_jumped.emit)
+	_player.dashed.connect(player_dashed.emit)
 	if get_parent() == get_tree().root:
 		load_level(10)
 		set_active(true)
