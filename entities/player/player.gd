@@ -3,8 +3,6 @@ extends CharacterBody2D
 
 signal died
 
-@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 # X axis movement
 # Running
 const RUN_MAX_SPD := 90.0
@@ -64,6 +62,7 @@ var _has_air_jump := false  ## A mid-air jump is still unused. Refilled on the g
 @onready var _rect: ColorRect = $Body
 @onready var _camera: Camera2D = $Camera2D
 @onready var _sfx: Node = $PlayerSFX
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
@@ -106,6 +105,7 @@ func _physics_process(delta: float) -> void:
 
 	_update_color()
 	if global_position.y > fall_limit:
+		_sfx.death()
 		died.emit()
 
 

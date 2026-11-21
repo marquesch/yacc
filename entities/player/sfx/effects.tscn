@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c0420lbbfl7yw" path="res://assets/sfx/player/air_jump.wav" id="4_mcmlt"]
 [ext_resource type="AudioStream" uid="uid://bomd8jmjlh7xt" path="res://assets/sfx/player/land.wav" id="5_h4x4k"]
 [ext_resource type="AudioStream" uid="uid://fsmwakfypn6a" path="res://assets/sfx/player/footstep.wav" id="6_sgcfr"]
+[ext_resource type="AudioStream" uid="uid://b33mwemhl7bn5" path="res://assets/sfx/player/death.wav" id="8_g8uj8"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_efkbf"]
 random_pitch = 1.4983071
@@ -37,6 +38,10 @@ random_pitch = 1.4983071
 random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("6_sgcfr")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uo5s5"]
+streams_count = 1
+stream_0/stream = ExtResource("8_g8uj8")
 
 [node name="PlayerSoundEffects" type="Node" unique_id=1045732730]
 script = ExtResource("1_0xepk")
@@ -72,4 +77,10 @@ metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
 stream = SubResource("AudioStreamRandomizer_2cwgi")
 bus = &"SFX"
 script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="." unique_id=1247394656]
+stream = SubResource("AudioStreamRandomizer_uo5s5")
+script = ExtResource("3_t6o05")
+base_volume_db = 0.0
 metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"

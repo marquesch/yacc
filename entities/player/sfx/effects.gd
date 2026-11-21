@@ -5,6 +5,7 @@ extends Node
 @onready var _dash_sfx: AudioStreamPlayer = $DashSFX
 @onready var _land_sfx: AudioStreamPlayer = $LandSFX
 @onready var _footstep: AudioStreamPlayer = $FootstepSFX
+@onready var _death: AudioStreamPlayer = $DeathSFX
 
 
 func jump() -> void:
@@ -25,3 +26,7 @@ func land() -> void:
 
 func footstep() -> void:
 	_footstep.play()
+
+
+func death() -> void:
+	_death.play()
