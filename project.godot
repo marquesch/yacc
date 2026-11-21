@@ -14,6 +14,10 @@ config/name="YACC"
 run/main_scene="uid://b30xgstreb6ni"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://ca20tm1sfgx40"
+
 [autoload]
 
 Progress="*res://autoloads/progress.gd"
@@ -111,5 +115,5 @@ dash={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.09, 0.09, 0.15, 1)
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.09, 0.09, 0.15, 1)

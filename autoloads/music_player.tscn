@@ -17,3 +17,4 @@ stream_3 = ExtResource("4_8mhfv")
 process_mode = 3
 stream = SubResource("AudioStreamPlaylist_uo5s5")
 autoplay = true
+bus = &"Music"
