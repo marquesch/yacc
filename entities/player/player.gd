@@ -59,6 +59,7 @@ var _has_air_jump := false  ## A mid-air jump is still unused. Refilled on the g
 
 @onready var _rect: ColorRect = $Body
 @onready var _camera: Camera2D = $Camera2D
+@onready var _sfx: Node = $PlayerSFX
 
 
 func _physics_process(delta: float) -> void:
@@ -76,6 +77,7 @@ func _physics_process(delta: float) -> void:
 		_dash_step(delta)
 	elif _can_dash and Input.is_action_just_pressed("dash"):
 		_start_dash(direction_input)
+		_sfx.dash()
 	else:
 		_normal_step(delta, direction_input, jump_just_pressed)
 
@@ -193,9 +195,11 @@ func _apply_variable_jump(delta: float) -> void:
 
 func _try_jump(direction: float, jump_just_pressed: bool) -> void:
 	if _jump_buffer_timer > 0.0 and _coyote_timer > 0.0:
+		_sfx.jump()
 		_jump(direction)
 	elif jump_just_pressed and _has_air_jump:
 		# Needs a fresh press, so a jump buffered for landing can't use up the air jump.
+		_sfx.jump()
 		_jump(direction)
 		_has_air_jump = false
 
