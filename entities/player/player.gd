@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 signal died
 
+@onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 # X axis movement
 # Running
 const RUN_MAX_SPD := 90.0
@@ -43,6 +45,8 @@ const COLOR_NO_DASH := Color(0.9, 0.9, 0.9)
 const COLOR_DASH_READY := Color(0.93, 0.27, 0.27)
 const COLOR_DASH_USED := Color(0.27, 0.55, 0.93)
 
+const RUN_FOOTSTEP_FRAMES := [1, 5]
+
 ## Falling below this y counts as death. Set by `enter_level()`.
 var fall_limit := 240.0
 
@@ -62,11 +66,20 @@ var _has_air_jump := false  ## A mid-air jump is still unused. Refilled on the g
 @onready var _sfx: Node = $PlayerSFX
 
 
+func _ready() -> void:
+	_sprite.frame_changed.connect(_on_sprite_frame_changed)
+
+
+func _on_sprite_frame_changed() -> void:
+	if _sprite.animation == "run" and _sprite.frame in RUN_FOOTSTEP_FRAMES:
+		_sfx.footstep()
+
+
 func _physics_process(delta: float) -> void:
 	var direction_input := _read_input()
 	if direction_input.x != 0.0:
 		_facing = int(direction_input.x)
-	$AnimatedSprite2D.flip_h = _facing != 1
+	_sprite.flip_h = _facing != 1
 	var jump_just_pressed := Input.is_action_just_pressed("jump")
 	if jump_just_pressed:
 		_jump_buffer_timer = JUMP_BUFFER_TIME
@@ -82,11 +95,14 @@ func _physics_process(delta: float) -> void:
 		_normal_step(delta, direction_input, jump_just_pressed)
 
 	_tick_timers(delta)
+	var was_on_floor := is_on_floor()
 	move_and_slide()
+	if is_on_floor() and not was_on_floor:
+		_sfx.land()
 	var animation := _resolve_animation()
-	$AnimatedSprite2D.play()
-	if animation != $AnimatedSprite2D.animation:
-		$AnimatedSprite2D.animation = animation
+	_sprite.play()
+	if animation != _sprite.animation:
+		_sprite.animation = animation
 
 	_update_color()
 	if global_position.y > fall_limit:
@@ -199,7 +215,7 @@ func _try_jump(direction: float, jump_just_pressed: bool) -> void:
 		_jump(direction)
 	elif jump_just_pressed and _has_air_jump:
 		# Needs a fresh press, so a jump buffered for landing can't use up the air jump.
-		_sfx.jump()
+		_sfx.air_jump()
 		_jump(direction)
 		_has_air_jump = false
 
@@ -237,7 +253,7 @@ func _start_dash(input: Vector2) -> void:
 	_dash_cooldown = DASH_COOLDOWN
 	_var_jump_timer = 0.0
 	velocity = _dash_direction * DASH_SPD
-	$AnimatedSprite2D.animation = "dash"
+	_sprite.animation = "dash"
 
 
 ## During a dash we ignore input and gravity: the velocity is fixed until the timer ends.
