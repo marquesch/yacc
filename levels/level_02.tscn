@@ -25,14 +25,14 @@ size = Vector2(200, 20)
 
 [node name="Hint0" type="Label" parent="." unique_id=641703945]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 24
-offset_top = 110
+offset_left = 24.0
+offset_top = 110.0
 script = ExtResource("4")
 template = "Jump: {jump}"
 
 [node name="Hint1" type="Label" parent="." unique_id=545003794]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 150
-offset_top = 110
+offset_left = 150.0
+offset_top = 110.0
 script = ExtResource("4")
 template = "Hole! Falling = start over"
