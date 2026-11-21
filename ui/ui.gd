@@ -45,11 +45,20 @@ func show_play() -> void:
 	_hud.show()
 
 
-func show_end(elapsed_seconds: int, deaths: int) -> void:
+func show_end(elapsed_seconds: int, deaths: int, jumps: int, air_jumps: int, dashes: int) -> void:
 	_hud.hide()
-	_end_label.text = "You did it in %s with %d %s!\nPress any key to go back to the menu" % [
-		HUD.format_time(elapsed_seconds), deaths, "death" if deaths == 1 else "deaths"
-	]
+	_end_label.text = (
+		"""
+		You did it!
+		Time taken: %s
+		Deaths: %d,
+		Jumps: %d,
+		Air jumps: %d,
+		Dashes: %d
+		Press any key to go back to the menu!
+		"""
+		% [HUD.format_time(elapsed_seconds), deaths, jumps, air_jumps, dashes]
+	)
 	_end_label.show()
 
 

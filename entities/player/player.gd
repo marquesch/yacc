@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 signal died
+signal jumped(air: bool)
+signal dashed
 
 # X axis movement
 # Running
@@ -89,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		_dash_step(delta)
 	elif _can_dash and Input.is_action_just_pressed("dash"):
 		_start_dash(direction_input)
+		dashed.emit()
 		_sfx.dash()
 	else:
 		_normal_step(delta, direction_input, jump_just_pressed)
@@ -211,10 +214,12 @@ func _apply_variable_jump(delta: float) -> void:
 
 func _try_jump(direction: float, jump_just_pressed: bool) -> void:
 	if _jump_buffer_timer > 0.0 and _coyote_timer > 0.0:
+		jumped.emit(false)
 		_sfx.jump()
 		_jump(direction)
 	elif jump_just_pressed and _has_air_jump:
 		# Needs a fresh press, so a jump buffered for landing can't use up the air jump.
+		jumped.emit(true)
 		_sfx.air_jump()
 		_jump(direction)
 		_has_air_jump = false
