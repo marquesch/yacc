@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://byskfcftxx6u1"]
+
+[ext_resource type="Script" uid="uid://nhy0pvmhqwbw" path="res://entities/player/sfx/effects.gd" id="1_0xepk"]
+[ext_resource type="AudioStream" uid="uid://lutfhfme5cga" path="res://assets/sfx/player/dash_01.wav" id="2_t6o05"]
+[ext_resource type="AudioStream" uid="uid://3jwgrjamgwpx" path="res://assets/sfx/player/jump.wav" id="3_g8uj8"]
+[ext_resource type="Script" uid="uid://bp1m1vkvm3ikh" path="res://entities/player/sfx/player_sfx.gd" id="3_t6o05"]
+[ext_resource type="AudioStream" uid="uid://c0420lbbfl7yw" path="res://assets/sfx/player/air_jump.wav" id="4_mcmlt"]
+[ext_resource type="AudioStream" uid="uid://bomd8jmjlh7xt" path="res://assets/sfx/player/land.wav" id="5_h4x4k"]
+[ext_resource type="AudioStream" uid="uid://fsmwakfypn6a" path="res://assets/sfx/player/footstep.wav" id="6_sgcfr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_efkbf"]
+random_pitch = 1.4983071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("2_t6o05")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_afg2n"]
+random_pitch = 1.4983071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("3_g8uj8")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_iqt5v"]
+random_pitch = 1.4983071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("4_mcmlt")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uqrtp"]
+random_pitch = 1.4983071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("5_h4x4k")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2cwgi"]
+random_pitch = 1.4983071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("6_sgcfr")
+
+[node name="PlayerSoundEffects" type="Node" unique_id=1045732730]
+script = ExtResource("1_0xepk")
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="." unique_id=154174900]
+stream = SubResource("AudioStreamRandomizer_efkbf")
+max_polyphony = 2
+bus = &"SFX"
+script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="." unique_id=2146183016]
+stream = SubResource("AudioStreamRandomizer_afg2n")
+max_polyphony = 2
+bus = &"SFX"
+script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
+
+[node name="AirJumpSFX" type="AudioStreamPlayer" parent="." unique_id=1497577083]
+stream = SubResource("AudioStreamRandomizer_iqt5v")
+max_polyphony = 2
+bus = &"SFX"
+script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
+
+[node name="LandSFX" type="AudioStreamPlayer" parent="." unique_id=103519306]
+stream = SubResource("AudioStreamRandomizer_uqrtp")
+bus = &"SFX"
+script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"
+
+[node name="FootstepSFX" type="AudioStreamPlayer" parent="." unique_id=1037438276]
+stream = SubResource("AudioStreamRandomizer_2cwgi")
+bus = &"SFX"
+script = ExtResource("3_t6o05")
+metadata/_custom_type_script = "uid://bp1m1vkvm3ikh"

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ich25xf30ay" path="res://assets/sprites/player/run/Run7.png" id="15_wqfne"]
 [ext_resource type="Texture2D" uid="uid://8kreo3s7t4kc" path="res://assets/sprites/player/run/Run8.png" id="16_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://bkl5wu1ps425i" path="res://assets/sprites/player/wallslide/WallSlide1.png" id="17_gl8cc"]
-[ext_resource type="PackedScene" uid="uid://byskfcftxx6u1" path="res://entities/player/sfx/player_sfx.tscn" id="19_we0b7"]
+[ext_resource type="PackedScene" uid="uid://byskfcftxx6u1" path="res://entities/player/sfx/effects.tscn" id="19_we0b7"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 11)
@@ -149,7 +149,6 @@ position_smoothing_speed = 8.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=657291886]
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_uo5s5")
-animation = &"idle"
-frame_progress = 0.40735087
+animation = &"run"
 
 [node name="PlayerSFX" parent="." unique_id=689651622 instance=ExtResource("19_we0b7")]

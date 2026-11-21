@@ -1,27 +1,19 @@
-extends Node
+class_name PlayerSFX
+extends AudioStreamPlayer
 
-@onready var _jump_sfx: AudioStreamPlayer = $JumpSFX
-@onready var _air_jump_sfx: AudioStreamPlayer = $AirJumpSFX
-@onready var _dash_sfx: AudioStreamPlayer = $DashSFX
-@onready var _land_sfx: AudioStreamPlayer = $LandSFX
-@onready var _footstep: AudioStreamPlayer = $FootstepSFX
+@export_group("Volume")
+@export var base_volume_db: float = -20.0
+@export var random_volume_offset_db: float = 2.0
 
-
-func jump() -> void:
-	_jump_sfx.play()
+@export_group("Pitch")
+@export var random_pitch_semitones: float = 6.0
 
 
-func air_jump() -> void:
-	_air_jump_sfx.play()
+func _ready() -> void:
+	volume_db = base_volume_db
+	bus = "SFX"
 
-
-func dash() -> void:
-	_dash_sfx.play()
-
-
-func land() -> void:
-	_land_sfx.play()
-
-
-func footstep() -> void:
-	_footstep.play()
+	if stream is AudioStreamRandomizer:
+		var randomizer := stream as AudioStreamRandomizer
+		randomizer.random_volume_offset_db = random_volume_offset_db
+		randomizer.random_pitch_semitones = random_pitch_semitones
