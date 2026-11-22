@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwp2wthabm4ox"]
+
+[ext_resource type="Script" uid="uid://bxhcngaharrrx" path="res://entities/world/platform/platform.gd" id="1_f7tcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7tcu"]
+size = Vector2(32, 2)
+
+[node name="FallingPlatform" type="StaticBody2D" unique_id=1286679071]
+script = ExtResource("1_f7tcu")
+metadata/_custom_type_script = "uid://bxhcngaharrrx"
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=560631061]
+
+[node name="Shape" type="CollisionShape2D" parent="TriggerArea" unique_id=613852746]
+shape = SubResource("RectangleShape2D_f7tcu")
