@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dhn7qtlvgb473"]
 
 [ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/exit/exit.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 
 [node name="Level" type="Node2D" unique_id=1118033958]
 script = ExtResource("1")

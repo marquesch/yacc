@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b0v7n40un2apg"]
 
 [ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/exit/exit.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 [ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
 
 [node name="Level" type="Node2D" unique_id=1009787733]
@@ -25,14 +25,14 @@ size = Vector2(200, 20)
 
 [node name="Hint0" type="Label" parent="." unique_id=641703945]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 24
-offset_top = 110
+offset_left = 24.0
+offset_top = 110.0
 script = ExtResource("4")
 template = "Jump: {jump}"
 
 [node name="Hint1" type="Label" parent="." unique_id=545003794]
 modulate = Color(1, 1, 1, 0.6)
-offset_left = 150
-offset_top = 110
+offset_left = 150.0
+offset_top = 110.0
 script = ExtResource("4")
 template = "Hole! Falling = start over"

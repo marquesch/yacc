@@ -1,63 +1,61 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://debadhti83kj5"]
 
-[ext_resource type="Script"  path="res://levels/level.gd" id="1"]
-[ext_resource type="PackedScene" path="res://entities/platform/platform.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://entities/exit/exit.tscn" id="3"]
+[ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 
-[node name="Level13" type="Node2D"]
+[node name="Level13" type="Node2D" unique_id=1018377969]
 script = ExtResource("1")
 size = Vector2i(340, 620)
 
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="Spawn" type="Marker2D" parent="." unique_id=587203483]
 position = Vector2(20, 600)
 
-[node name="Exit" parent="." instance=ExtResource("3")]
+[node name="Exit" parent="." unique_id=1289978826 instance=ExtResource("3")]
 position = Vector2(162, 52)
 
-[node name="Platform0" parent="." instance=ExtResource("2")]
-position = Vector2(0, 0)
+[node name="Platform0" parent="." unique_id=2039167478 instance=ExtResource("2")]
 size = Vector2(8, 620)
 
-[node name="Platform1" parent="." instance=ExtResource("2")]
+[node name="Platform1" parent="." unique_id=1373607821 instance=ExtResource("2")]
 position = Vector2(332, 0)
 size = Vector2(8, 620)
 
-[node name="Platform2" parent="." instance=ExtResource("2")]
-position = Vector2(0, 0)
+[node name="Platform2" parent="." unique_id=2074675712 instance=ExtResource("2")]
 size = Vector2(340, 8)
 
-[node name="Platform3" parent="." instance=ExtResource("2")]
+[node name="Platform3" parent="." unique_id=271971413 instance=ExtResource("2")]
 position = Vector2(8, 612)
 size = Vector2(60, 8)
 
-[node name="Platform4" parent="." instance=ExtResource("2")]
+[node name="Platform4" parent="." unique_id=1194175463 instance=ExtResource("2")]
 position = Vector2(70, 546)
 size = Vector2(10, 8)
 
-[node name="Platform5" parent="." instance=ExtResource("2")]
+[node name="Platform5" parent="." unique_id=888568163 instance=ExtResource("2")]
 position = Vector2(250, 480)
 size = Vector2(10, 8)
 
-[node name="Platform6" parent="." instance=ExtResource("2")]
+[node name="Platform6" parent="." unique_id=2102685450 instance=ExtResource("2")]
 position = Vector2(70, 414)
 size = Vector2(10, 8)
 
-[node name="Platform7" parent="." instance=ExtResource("2")]
+[node name="Platform7" parent="." unique_id=328730185 instance=ExtResource("2")]
 position = Vector2(250, 348)
 size = Vector2(10, 8)
 
-[node name="Platform8" parent="." instance=ExtResource("2")]
+[node name="Platform8" parent="." unique_id=147204906 instance=ExtResource("2")]
 position = Vector2(70, 282)
 size = Vector2(10, 8)
 
-[node name="Platform9" parent="." instance=ExtResource("2")]
+[node name="Platform9" parent="." unique_id=1514141527 instance=ExtResource("2")]
 position = Vector2(250, 216)
 size = Vector2(10, 8)
 
-[node name="Platform10" parent="." instance=ExtResource("2")]
+[node name="Platform10" parent="." unique_id=1251112778 instance=ExtResource("2")]
 position = Vector2(70, 150)
 size = Vector2(10, 8)
 
-[node name="Platform11" parent="." instance=ExtResource("2")]
+[node name="Platform11" parent="." unique_id=1385623802 instance=ExtResource("2")]
 position = Vector2(150, 84)
 size = Vector2(40, 8)

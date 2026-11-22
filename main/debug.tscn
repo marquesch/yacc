@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://v6o21jvetiqd"]
+
+[ext_resource type="PackedScene" uid="uid://c13lmjx22d3q6" path="res://world/world.tscn" id="1_ji45m"]
+[ext_resource type="Script" uid="uid://b1ufi6k1hkuvp" path="res://main/debug.gd" id="1_rwbj2"]
+[ext_resource type="PackedScene" uid="uid://bxr5cgkxkq2au" path="res://ui/ui.tscn" id="2_rwbj2"]
+
+[node name="Debug" type="Node" unique_id=59172676]
+script = ExtResource("1_rwbj2")
+level = 14
+
+[node name="World" parent="." unique_id=1500279934 instance=ExtResource("1_ji45m")]
+
+[node name="UI" parent="." unique_id=1695808539 instance=ExtResource("2_rwbj2")]

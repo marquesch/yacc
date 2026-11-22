@@ -71,6 +71,11 @@ func _ready() -> void:
 	_sprite.frame_changed.connect(_on_sprite_frame_changed)
 
 
+func kill() -> void:
+	_sfx.death()
+	died.emit()
+
+
 func _on_sprite_frame_changed() -> void:
 	if _sprite.animation == "run" and _sprite.frame in RUN_FOOTSTEP_FRAMES:
 		_sfx.footstep()
@@ -108,8 +113,7 @@ func _physics_process(delta: float) -> void:
 
 	_update_color()
 	if global_position.y > fall_limit:
-		_sfx.death()
-		died.emit()
+		kill()
 
 
 ## Prepares the player for `level`: abilities, camera limits, and a fresh start.

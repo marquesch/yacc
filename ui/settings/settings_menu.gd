@@ -14,7 +14,6 @@ func _ready() -> void:
 	var check_box: CheckBox
 	for bus in AUDIO_BUS_NAMES:
 		idx = AudioServer.get_bus_index(bus)
-		print("%%%sBusSlider" % bus)
 		slider = get_node("%%%sBusSlider" % bus)
 		check_box = get_node("%%%sBusActiveBox" % bus)
 		slider.value = AudioServer.get_bus_volume_linear(idx)

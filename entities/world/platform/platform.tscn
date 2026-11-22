@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cwlpfev1y0wta"]
+
+[ext_resource type="Script" uid="uid://bxhcngaharrrx" path="res://entities/world/platform/platform.gd" id="1"]
+
+[node name="Platform" type="StaticBody2D" unique_id=959296976]
+script = ExtResource("1")
