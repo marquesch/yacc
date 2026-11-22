@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 [ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
-[ext_resource type="PackedScene" uid="uid://b84qcywq4o631" path="res://entities/world/dart_trap/trap.tscn" id="5_mllcm"]
 
 [node name="Level" type="Node2D" unique_id=1572938429]
 script = ExtResource("1")
@@ -27,8 +26,3 @@ offset_left = 24.0
 offset_top = 110.0
 script = ExtResource("4")
 template = "Move: {move}"
-
-[node name="DartTrap" parent="." unique_id=1955400933 instance=ExtResource("5_mllcm")]
-position = Vector2(241, 155)
-facing = 3
-start_delay = 0.0

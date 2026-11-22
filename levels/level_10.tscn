@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 [ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://b84qcywq4o631" path="res://entities/world/dart_trap/trap.tscn" id="5_tu44s"]
 
 [node name="Level2" type="Node2D" unique_id=216851972]
 script = ExtResource("1")
@@ -57,3 +58,19 @@ offset_left = 24.0
 offset_top = 132.6
 script = ExtResource("4")
 template = "Jump, dash, then jump again!"
+
+[node name="DartTrap" parent="." unique_id=1955400933 instance=ExtResource("5_tu44s")]
+position = Vector2(500, 160)
+facing = 3
+
+[node name="DartTrap2" parent="." unique_id=745049685 instance=ExtResource("5_tu44s")]
+position = Vector2(942, 64)
+facing = 3
+
+[node name="DartTrap3" parent="." unique_id=1723797489 instance=ExtResource("5_tu44s")]
+position = Vector2(1392, 60)
+facing = 3
+
+[node name="DartTrap4" parent="." unique_id=1591356949 instance=ExtResource("5_tu44s")]
+position = Vector2(1634, 113)
+facing = 3
