@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://u0q20so58xc0"]
+
+[ext_resource type="Texture2D" uid="uid://cb8112t34hb67" path="res://assets/sprites/world/dart.png" id="1_gf65o"]
+[ext_resource type="Script" uid="uid://pp6p4c321anh" path="res://entities/world/dart_trap/dart.gd" id="1_iwjbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exd51"]
+size = Vector2(1, 8)
+
+[node name="Dart" type="Area2D" unique_id=94856605]
+script = ExtResource("1_iwjbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1401343089]
+texture = ExtResource("1_gf65o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=422441760]
+shape = SubResource("RectangleShape2D_exd51")
+debug_color = Color(0.84528124, 0.2762255, 0.6572477, 0.41960785)

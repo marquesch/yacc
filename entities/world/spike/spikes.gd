@@ -8,12 +8,6 @@ const TILE := 16
 const HITBOX_HEIGHT := 8.0
 const HITBOX_INSET := 1.0
 
-@export var texture: Texture2D = preload("res://assets/sprites/world/spike.png"):
-	set(value):
-		texture = value
-		if is_node_ready():
-			_rebuild()
-
 @export_range(1, 64) var count := 4:
 	set(value):
 		count = value
@@ -26,6 +20,8 @@ const HITBOX_INSET := 1.0
 		if is_node_ready():
 			_rebuild()
 
+@onready var sprite: Sprite2D = $Sprite
+
 
 func _ready() -> void:
 	_rebuild()
@@ -36,14 +32,7 @@ func _ready() -> void:
 func _rebuild() -> void:
 	rotation = facing * PI / 2.0
 	var width := TILE * count
-	var sprite: Sprite2D = get_node_or_null("Sprite")
 
-	if sprite == null:
-		sprite = Sprite2D.new()
-		sprite.name = "Sprite"
-		add_child(sprite)
-
-	sprite.texture = texture
 	sprite.centered = false
 	sprite.position = Vector2(0, -TILE)
 	sprite.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
