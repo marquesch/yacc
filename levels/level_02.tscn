@@ -16,11 +16,11 @@ position = Vector2(24, 154)
 position = Vector2(453, 128)
 
 [node name="Platform0" parent="." unique_id=1431114021 instance=ExtResource("2")]
-position = Vector2(0, 160)
+position = Vector2(116, 170)
 size = Vector2(232, 20)
 
 [node name="Platform1" parent="." unique_id=312696010 instance=ExtResource("2")]
-position = Vector2(297, 160)
+position = Vector2(397, 170)
 size = Vector2(200, 20)
 
 [node name="Hint0" type="Label" parent="." unique_id=641703945]

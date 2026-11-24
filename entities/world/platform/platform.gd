@@ -1,7 +1,7 @@
 @tool
 class_name Platform
 extends AnimatableBody2D
-## A solid rectangle. Set `size` in the inspector; the node's origin is its top-left corner.
+## A solid rectangle. Set `size` in the inspector; the node's origin is its center.
 ##
 ## The visual and the collision shape are created in code from `size`, so every instance
 ## has its own shape and level scenes only need to store a position and a size. `@tool`

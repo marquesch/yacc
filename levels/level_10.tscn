@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dwp2wthabm4ox" path="res://entities/world/falling_platform/falling_platform.tscn" id="falling_platform"]
 [ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 [ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://b84qcywq4o631" path="res://entities/world/dart_trap/trap.tscn" id="5_tu44s"]
@@ -17,39 +18,39 @@ position = Vector2(24, 186.6)
 position = Vector2(1859.5, 8)
 
 [node name="Platform0" parent="." unique_id=492361609 instance=ExtResource("2")]
-position = Vector2(0, 192.6)
+position = Vector2(32, 202.6)
 size = Vector2(64, 20)
 
 [node name="Platform1" parent="." unique_id=2056695574 instance=ExtResource("2")]
-position = Vector2(264, 192.6)
+position = Vector2(296, 196.6)
 size = Vector2(64, 8)
 
 [node name="Platform2" parent="." unique_id=101824896 instance=ExtResource("2")]
-position = Vector2(504.2, 156.6)
+position = Vector2(532.2, 160.6)
 size = Vector2(56, 8)
 
-[node name="Platform3" parent="." unique_id=1522834242 instance=ExtResource("2")]
-position = Vector2(754, 127.8)
+[node name="FallingPlatform3" parent="." unique_id=1522834242 instance=ExtResource("falling_platform")]
+position = Vector2(782, 131.8)
 size = Vector2(56, 8)
 
 [node name="Platform4" parent="." unique_id=153029438 instance=ExtResource("2")]
-position = Vector2(946.2, 60.6)
+position = Vector2(974.2, 64.6)
 size = Vector2(56, 8)
 
-[node name="Platform5" parent="." unique_id=1289027000 instance=ExtResource("2")]
-position = Vector2(1166, 120.6)
+[node name="FallingPlatform5" parent="." unique_id=1289027000 instance=ExtResource("falling_platform")]
+position = Vector2(1198, 124.6)
 size = Vector2(64, 8)
 
 [node name="Platform6" parent="." unique_id=1317073453 instance=ExtResource("2")]
-position = Vector2(1396.2, 57)
+position = Vector2(1424.2, 61)
 size = Vector2(56, 8)
 
 [node name="Platform7" parent="." unique_id=894225187 instance=ExtResource("2")]
-position = Vector2(1638.5, 110)
+position = Vector2(1670.5, 114)
 size = Vector2(64, 8)
 
 [node name="Platform8" parent="." unique_id=1297283279 instance=ExtResource("2")]
-position = Vector2(1827.5, 40)
+position = Vector2(1855.5, 44)
 size = Vector2(56, 8)
 
 [node name="Hint0" type="Label" parent="." unique_id=644407088]

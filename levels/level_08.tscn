@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ulya5cpcgl8s" path="res://levels/level.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://cwlpfev1y0wta" path="res://entities/world/platform/platform.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dwp2wthabm4ox" path="res://entities/world/falling_platform/falling_platform.tscn" id="falling_platform"]
 [ext_resource type="PackedScene" uid="uid://cadx2j3bibenr" path="res://entities/world/exit/exit.tscn" id="3"]
 [ext_resource type="Script" uid="uid://cry1ufy36pr4e" path="res://ui/hint_label/hint_label.gd" id="4"]
 
@@ -16,31 +17,31 @@ position = Vector2(24, 144)
 position = Vector2(991, 22.8)
 
 [node name="Platform0" parent="." unique_id=413480783 instance=ExtResource("2")]
-position = Vector2(0, 150)
+position = Vector2(48, 160)
 size = Vector2(96, 20)
 
 [node name="Platform1" parent="." unique_id=598346662 instance=ExtResource("2")]
-position = Vector2(169.8, 111.6)
+position = Vector2(197.8, 115.6)
 size = Vector2(56, 8)
 
 [node name="Platform2" parent="." unique_id=980390237 instance=ExtResource("2")]
-position = Vector2(344.5, 111.6)
+position = Vector2(376.5, 115.6)
 size = Vector2(64, 8)
 
-[node name="Platform3" parent="." unique_id=861769079 instance=ExtResource("2")]
-position = Vector2(509.8, 131.6)
+[node name="FallingPlatform3" parent="." unique_id=861769079 instance=ExtResource("falling_platform")]
+position = Vector2(541.8, 135.6)
 size = Vector2(64, 8)
 
 [node name="Platform4" parent="." unique_id=1492610647 instance=ExtResource("2")]
-position = Vector2(646.2, 93.2)
+position = Vector2(674.2, 97.2)
 size = Vector2(56, 8)
 
 [node name="Platform5" parent="." unique_id=1183508031 instance=ExtResource("2")]
-position = Vector2(833.5, 93.2)
+position = Vector2(865.5, 97.2)
 size = Vector2(64, 8)
 
 [node name="Platform6" parent="." unique_id=1618998680 instance=ExtResource("2")]
-position = Vector2(960, 54.8)
+position = Vector2(988, 58.8)
 size = Vector2(56, 8)
 
 [node name="Hint0" type="Label" parent="." unique_id=885307142]

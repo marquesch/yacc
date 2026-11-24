@@ -15,30 +15,32 @@ position = Vector2(20, 220)
 position = Vector2(1068, 158)
 
 [node name="Platform0" parent="." unique_id=987786543 instance=ExtResource("2")]
+position = Vector2(4, 120)
 size = Vector2(8, 240)
 
 [node name="Platform1" parent="." unique_id=571092928 instance=ExtResource("2")]
-position = Vector2(1092, 0)
+position = Vector2(1096, 120)
 size = Vector2(8, 240)
 
 [node name="Platform2" parent="." unique_id=1702862736 instance=ExtResource("2")]
+position = Vector2(550, 4)
 size = Vector2(1100, 8)
 
 [node name="Platform3" parent="." unique_id=354320738 instance=ExtResource("2")]
-position = Vector2(8, 232)
+position = Vector2(38, 236)
 size = Vector2(60, 8)
 
 [node name="Platform4" parent="." unique_id=1688272267 instance=ExtResource("2")]
-position = Vector2(318, 225)
+position = Vector2(323, 229)
 size = Vector2(10, 8)
 
 [node name="Platform5" parent="." unique_id=130119359 instance=ExtResource("2")]
-position = Vector2(580, 214)
+position = Vector2(585, 218)
 size = Vector2(10, 8)
 
 [node name="Platform6" parent="." unique_id=378117331 instance=ExtResource("2")]
-position = Vector2(838, 200)
+position = Vector2(843, 204)
 size = Vector2(10, 8)
 
 [node name="Platform7" parent="." unique_id=1655306324 instance=ExtResource("2")]
-position = Vector2(1060, 190)
+position = Vector2(1076, 194)

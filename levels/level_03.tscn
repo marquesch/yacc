@@ -15,13 +15,13 @@ position = Vector2(24, 154)
 position = Vector2(569.2, 128)
 
 [node name="Platform0" parent="." unique_id=1162465787 instance=ExtResource("2")]
-position = Vector2(0, 160)
+position = Vector2(90, 170)
 size = Vector2(180, 20)
 
 [node name="Platform1" parent="." unique_id=2007952298 instance=ExtResource("2")]
-position = Vector2(248.8, 160)
+position = Vector2(318.8, 170)
 size = Vector2(140, 20)
 
 [node name="Platform2" parent="." unique_id=1079529319 instance=ExtResource("2")]
-position = Vector2(466.2, 160)
+position = Vector2(536.2, 170)
 size = Vector2(140, 20)

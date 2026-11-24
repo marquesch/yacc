@@ -11,10 +11,10 @@ var _falling := false
 var _triggered := false
 var _waiting_to_spawn := false
 
-@onready var trigger_area: Area2D = $TriggerArea
-@onready var trigger_shape_node: CollisionShape2D = $TriggerArea/Shape
-@onready var _spawn_area: Area2D = $SpawnArea
-@onready var _spawn_area_shape_node: CollisionShape2D = $SpawnArea/Shape
+@onready var trigger_area: Area2D = get_node_or_null("TriggerArea")
+@onready var trigger_shape_node: CollisionShape2D = get_node_or_null("TriggerArea/Shape")
+@onready var _spawn_area: Area2D = get_node_or_null("SpawnArea")
+@onready var _spawn_area_shape_node: CollisionShape2D = get_node_or_null("SpawnArea/Shape")
 
 
 func _init() -> void:
@@ -39,7 +39,7 @@ func _rebuild() -> void:
 
 	if _spawn_area_shape_node == null:
 		_spawn_area_shape_node = CollisionShape2D.new()
-		_spawn_area_shape_node.name = "CollisionShape"
+		_spawn_area_shape_node.name = "Shape"
 		_spawn_area.add_child(_spawn_area_shape_node)
 
 	var spawn_shape := RectangleShape2D.new()
@@ -53,6 +53,7 @@ func _rebuild() -> void:
 
 	if trigger_shape_node == null:
 		trigger_shape_node = CollisionShape2D.new()
+		trigger_shape_node.name = "Shape"
 		trigger_area.add_child(trigger_shape_node)
 
 	var shape := RectangleShape2D.new()
