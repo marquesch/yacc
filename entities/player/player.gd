@@ -5,17 +5,6 @@ signal died
 signal jumped(air: bool)
 signal dashed
 
-# X axis movement
-# Running
-const RUN_MAX_SPD := 90.0
-const RUN_ACCEL := 1000.0
-const RUN_OVER_MAX_DECEL := 400.0
-
-# Flying
-const FLY_MAX_SPD := 120.0
-const FLY_ACCEL := 1000.0
-const FLY_OVER_MAX_DECEL := 400.0
-
 # Y axis movement
 # Falling
 const FALL_MAX_SPD := 160.0
@@ -34,10 +23,8 @@ const JUMP_COYOTE_TIME := 0.1  ## Can still jump this long after walking off a l
 const JUMP_BUFFER_TIME := 0.1  ## A jump pressed this early before landing still counts.
 
 # Dashing
-const DASH_SPD := 240.0
-const DASH_END_SPD := 160.0
-const DASH_VERTICAL_MULT := 0.75
-const DASH_TIME := 0.2
+const DASH_BONUS_SPD := 50.0
+const DASH_SUSPEND_MAX_SPD_TIME := 0.2
 const DASH_COOLDOWN := 0.2
 
 # Colors - temporary
@@ -47,14 +34,23 @@ const COLOR_DASH_USED := Color(0.27, 0.55, 0.93)
 
 const RUN_FOOTSTEP_FRAMES := [1, 5]
 
+@export var run_ref_vel := 100.0
+@export var run_accel := 150.0
+@export var run_decel := 10.0
+
+@export var fly_ref_vel := 100.0
+@export var fly_accel := 150.0
+@export var fly_decel := 0.0
+
+@export var movement_turn_mult := 2.0
+
 ## Falling below this y counts as death. Set by `enter_level()`.
 var fall_limit := 240.0
 
 var _facing := 1
 var _can_dash := true
-var _dash_timer := 0.0
 var _dash_cooldown := 0.0
-var _dash_direction := Vector2.ZERO
+var _suspend_max_spd_timer := 0.0
 var _var_jump_timer := 0.0
 var _var_jump_speed := 0.0
 var _coyote_timer := 0.0
@@ -65,6 +61,12 @@ var _has_air_jump := false  ## A mid-air jump is still unused. Refilled on the g
 @onready var _camera: Camera2D = $Camera2D
 @onready var _sfx: Node = $PlayerSFX
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _run_movement: Movement = Movement.new(
+	run_ref_vel, run_accel, run_decel, movement_turn_mult * run_accel
+)
+@onready var _fly_movement: Movement = Movement.new(
+	fly_ref_vel, fly_accel, fly_decel, movement_turn_mult * fly_accel
+)
 
 
 func _ready() -> void:
@@ -92,9 +94,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		_refresh_on_ground()
 
-	if _dash_timer > 0.0:
-		_dash_step(delta)
-	elif _can_dash and Input.is_action_just_pressed("dash"):
+	if _can_dash and Input.is_action_just_pressed("dash"):
 		_start_dash(direction_input)
 		dashed.emit()
 		_sfx.dash()
@@ -131,7 +131,6 @@ func enter_level(level: Level) -> void:
 func respawn(pos: Vector2) -> void:
 	global_position = pos
 	velocity = Vector2.ZERO
-	_dash_timer = 0.0
 	_dash_cooldown = 0.0
 	_var_jump_timer = 0.0
 	_coyote_timer = 0.0
@@ -160,6 +159,7 @@ func _tick_timers(delta: float) -> void:
 	_dash_cooldown = maxf(_dash_cooldown - delta, 0.0)
 	_coyote_timer = maxf(_coyote_timer - delta, 0.0)
 	_jump_buffer_timer = maxf(_jump_buffer_timer - delta, 0.0)
+	_suspend_max_spd_timer = maxf(_suspend_max_spd_timer - delta, 0.0)
 
 
 func _update_color() -> void:
@@ -173,26 +173,19 @@ func _normal_step(delta: float, input: Vector2, jump_just_pressed: bool) -> void
 	_apply_horizontal_movement(delta, input.x)
 	_apply_gravity(delta)
 	_apply_variable_jump(delta)
-	_try_jump(input.x, jump_just_pressed)
+	_try_jump(jump_just_pressed)
 
 
 func _apply_horizontal_movement(delta: float, direction: float) -> void:
-	var accel: float
-	var max_spd: float
-	var over_max_decel: float
+	var movement: Movement
 	if is_on_floor():
-		accel = RUN_ACCEL
-		max_spd = RUN_MAX_SPD
-		over_max_decel = RUN_OVER_MAX_DECEL
+		movement = _run_movement
 	else:
-		accel = FLY_ACCEL
-		max_spd = FLY_MAX_SPD
-		over_max_decel = FLY_OVER_MAX_DECEL
+		movement = _fly_movement
 
-	if absf(velocity.x) > max_spd and signf(velocity.x) == direction:
-		accel = over_max_decel
-
-	velocity.x = move_toward(velocity.x, direction * max_spd, accel * delta)
+	var accel := movement.get_accel(velocity.x, direction)
+	var vel := movement.get_vel(direction)
+	velocity.x = move_toward(velocity.x, vel, accel * delta)
 
 
 func _apply_gravity(delta: float) -> void:
@@ -216,22 +209,21 @@ func _apply_variable_jump(delta: float) -> void:
 		_var_jump_timer = 0.0
 
 
-func _try_jump(direction: float, jump_just_pressed: bool) -> void:
+func _try_jump(jump_just_pressed: bool) -> void:
 	if _jump_buffer_timer > 0.0 and _coyote_timer > 0.0:
 		jumped.emit(false)
 		_sfx.jump()
-		_jump(direction)
+		_jump()
 	elif jump_just_pressed and _has_air_jump:
 		# Needs a fresh press, so a jump buffered for landing can't use up the air jump.
 		jumped.emit(true)
 		_sfx.air_jump()
-		_jump(direction)
+		_jump()
 		_has_air_jump = false
 
 
-func _jump(direction: float) -> void:
+func _jump() -> void:
 	velocity.y = JUMP_SPD
-	velocity.x += JUMP_HORIZONTAL_BOOST * direction
 	_var_jump_timer = JUMP_TIME
 	_var_jump_speed = velocity.y
 	_jump_buffer_timer = 0.0
@@ -239,9 +231,9 @@ func _jump(direction: float) -> void:
 
 
 func _resolve_animation() -> String:
-	if _dash_timer > 0.0:
-		return "dash"
 	if is_on_floor():
+		if _suspend_max_spd_timer > 0.0:
+			return "dash"
 		if velocity.x == 0.0:
 			return "idle"
 		return "run"
@@ -255,21 +247,13 @@ func _resolve_animation() -> String:
 
 
 func _start_dash(input: Vector2) -> void:
-	# 8 directions; with no direction held, dash the way we are facing.
-	_dash_direction = input.normalized() if input != Vector2.ZERO else Vector2(_facing, 0)
 	_can_dash = false
-	_dash_timer = DASH_TIME
 	_dash_cooldown = DASH_COOLDOWN
+	_suspend_max_spd_timer = DASH_SUSPEND_MAX_SPD_TIME
 	_var_jump_timer = 0.0
-	velocity = _dash_direction * DASH_SPD
+	# TODO: Fix this. Use move_toward.
+	# Set the minimum speed as DASH_BONUS_SPD
+	# so when you dash in the other direction you're moving,
+	# the character speed becomes DASH_BONUS_SPD instantly
+	velocity.x += input.x * DASH_BONUS_SPD
 	_sprite.animation = "dash"
-
-
-## During a dash we ignore input and gravity: the velocity is fixed until the timer ends.
-func _dash_step(delta: float) -> void:
-	_dash_timer -= delta
-	velocity = _dash_direction * DASH_SPD
-	if _dash_timer <= 0.0:
-		velocity = _dash_direction * DASH_END_SPD
-		if _dash_direction.y < 0.0:
-			velocity.y *= DASH_VERTICAL_MULT
